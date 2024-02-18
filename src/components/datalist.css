@@ -1,128 +1,140 @@
-.data-list{
-	display: flex;
-	flex-wrap: wrap;
-	max-width: 94%;
-	background-color: white;
+/* Styling for the container of the data list */
+.data-list {
+	display: flex; 
+	flex-wrap: wrap; 
+	max-width: 94%; 
+	background-color: white; 
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-	padding: 1rem;
-	border-radius: 1rem;
-	position: relative;
-	overflow-x: auto;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.437), 0 2px 4px -1px rgba(0, 0, 0, 0.437);
-	border-radius: 0.5rem;
+	margin-top: 2rem; 
+	margin-bottom: 2rem; 
+	padding: 1rem; 
+	border-radius: 1rem; 
+	position: relative; 
+	overflow-x: auto; 
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.437), 0 2px 4px -1px rgba(0, 0, 0, 0.437); 
+	border-radius: 0.5rem; 
 }
 
-.data-list table{
-	width: 100%;
-	font-size: 0.875rem;
-	text-align: left;
-	color: #6b7280;
+/* Styling for the table within the data list */
+.data-list table {
+	width: 100%; 
+	font-size: 0.875rem; 
+	text-align: left; 
+	color: #6b7280; 
 }
 
-.tableHead{
-	width: 100%;
-	font-size: 0.75rem;
-	color: #4b5563;
-	text-transform: uppercase;
+/* Styling for the table head */
+.tableHead {
+	width: 100%; 
+	font-size: 0.75rem; 
+	color: #4b5563; 
+	text-transform: uppercase; 
 	background-color: #f9fafb;
 }
 
-.checkBox{
-	width: 1rem;
-	height: 1rem;
-	color: #2563eb;
-	background-color: #f3f4f6;
-	border-color: #e5e7eb;
-	border-radius: 0.375rem;
+/* Styling for checkboxes */
+.checkBox {
+	width: 1rem; 
+	height: 1rem; 
+	color: #2563eb; 
+	background-color: #f3f4f6; 
+	border-color: #e5e7eb; 
+	border-radius: 0.375rem; 
 }
 
-.checkBoxContainer{
-	width: 1rem;
+/* Styling for checkbox container */
+.checkBoxContainer {
+	width: 1rem; 
 	padding: 1rem;
-	display: flex;
-	align-items: center;
+	display: flex; 
+	align-items: center; 
 }
 
-
-.headComponents{
-	padding-left: 1.5rem;
-    padding-right: 1.5rem;
-	padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+/* Styling for header components in the table */
+.headComponents {
+	padding-left: 1.5rem; 
+	padding-right: 1.5rem; 
+	padding-top: 0.75rem; 
+	padding-bottom: 0.75rem; 
 }
 
-.bodyComponents{
-	padding-left: 1.5rem;
-    padding-right: 1.5rem;
-	padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
+/* Styling for body components in the table */
+.bodyComponents {
+	padding-left: 1.5rem; 
+	padding-right: 1.5rem; 
+	padding-top: 0.25rem; 
+	padding-bottom: 0.25rem; 
 }
 
-.bodyheads{
-	padding-left: 1.5rem;
-    padding-right: 1.5rem;
-	padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-	font-weight: 500;
-	color: #111827;
-	white-space: nowrap;
+/* Styling for body header in the table */
+.bodyheads {
+	padding-left: 1.5rem; 
+	padding-right: 1.5rem; 
+	padding-top: 0.25rem; 
+	padding-bottom: 0.25rem; 
+	font-weight: 500; 
+	color: #111827; 
+	white-space: nowrap; 
 }
 
-.editSign{
-	font-weight: 500;
-	font-size: 1.5rem;
-	margin-left: 1rem;
-	cursor: pointer;
+/* Styling for edit sign */
+.editSign {
+	font-weight: 500; 
+	font-size: 1.5rem; 
+	margin-left: 1rem; 
+	cursor: pointer; 
 }
 
-.dataShow{
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-	margin-left: auto;
-    margin-right: auto;
-	padding: 1rem;
-}
-
-.dispatchItems{
-	color: rgb(255 255 255);
-	background-color: rgb(29 78 216);
-	font-weight: 400;
-	border-radius: 0.5rem;
-	font-size: 1rem;
-	line-height: 1.25rem;
-	padding-left: 2rem;
-	padding-right: 2rem;
-	padding-top: 0.625rem;
-	padding-bottom: 0.625rem;
-	margin: 10px;
-	border: none;
-	cursor: pointer;
-}
-
-.colLable{
-	margin-bottom: 0.5rem;
-	font-size: 0.875rem;
-	font-weight: 500;
-	color: #111827;
-	margin-right: 0.5rem;
-}
-
-.colSelect{
-	background-color: #f9fafb;
-	border-width: 1px;
-    border-style: solid;
-	border-color: #e5e7eb;
-	color: #111827;
-	font-size: 0.875rem;
-	border-radius: 0.375rem;
-	padding: 0.625rem;
+/* Styling for data show section in data-list */
+.dataShow {
+	width: 100%; 
+	display: flex; 
+	flex-wrap: wrap; 
+	justify-content: space-between; 
+	align-items: center; 
 	margin-left: auto;
 	margin-right: auto;
-	width: 15rem;
+	padding: 1rem; 
+}
+
+/* Styling for Mark Shipped button */
+.markShipped {
+	color: rgb(255 255 255); 
+	background-color: rgb(29 78 216); 
+	font-weight: 400; 
+	border-radius: 0.5rem; 
+	font-size: 1rem; 
+	line-height: 1.25rem; 
+	padding-left: 2rem; 
+	padding-right: 2rem; 
+	padding-top: 0.625rem; 
+	padding-bottom: 0.625rem; 
+	margin: 10px; 
+	border: none; 
+	cursor: pointer; 
+}
+
+/* Styling for column dropdown label */
+.colLable {
+	margin-bottom: 0.5rem; 
+	font-size: 0.875rem; 
+	font-weight: 500; 
+	color: #111827; 
+	margin-right: 0.5rem; 
+}
+
+/* Styling for column select dropdown */
+.colSelect {
+	background-color: #f9fafb; 
+	border-width: 1px; 
+	border-style: solid; 
+	border-color: #e5e7eb; 
+	color: #111827; 
+	font-size: 0.875rem; 
+	border-radius: 0.375rem; 
+	padding: 0.625rem; 
+	margin-left: auto; 
+	margin-right: auto; 
+	width: 15rem; 
 }

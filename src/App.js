@@ -6,7 +6,8 @@ import { Datalist } from "./components/Datalist";
 import { Dataform } from "./components/Dataform";
 
 function App() {
-  const [dataList, setDataList] = useState([
+  // State variables to manage data, filter options, search input, and form visibility
+  const [dataList, setDataList] = useState([        // Initial data list
     {
       id: 100001,
       SHIPIIFY: "17713",
@@ -50,8 +51,8 @@ function App() {
       status: "pending",
       customer: "Emily",
       email: "emily.smith@example.com",
-      country: "United Kingdom",
-      shipping: "Royal Mail",
+      country: "Australia",
+      shipping: "Austrelian Post Api",
       source: "ShopifyUK",
       order_type: "customer",
     },
@@ -62,8 +63,8 @@ function App() {
       status: "shipped",
       customer: "Michael",
       email: "michael@hotmail.com",
-      country: "Germany",
-      shipping: "Deutsche Post",
+      country: "Canada",
+      shipping: "Canada Post",
       source: "ShopifyDE",
       order_type: "customer",
     },
@@ -74,8 +75,8 @@ function App() {
       status: "pending",
       customer: "Sophia",
       email: "sophia@gmail.com",
-      country: "France",
-      shipping: "La Poste",
+      country: "United States",
+      shipping: "USPS",
       source: "ShopifyFR",
       order_type: "customer",
     },
@@ -86,8 +87,8 @@ function App() {
       status: "shipped",
       customer: "Daniel",
       email: "daniel@example.com",
-      country: "Spain",
-      shipping: "Correos",
+      country: "Australia",
+      shipping: "Austrelian Post Api",
       source: "ShopifyES",
       order_type: "customer",
     },
@@ -98,8 +99,8 @@ function App() {
       status: "pending",
       customer: "Emma",
       email: "emma.smith@example.com",
-      country: "Italy",
-      shipping: "Poste Italiane",
+      country: "Canada",
+      shipping: "Canada Post",
       source: "ShopifyIT",
       order_type: "customer",
     },
@@ -110,8 +111,8 @@ function App() {
       status: "shipped",
       customer: "Liam",
       email: "liam@example.com",
-      country: "Japan",
-      shipping: "Japan Post",
+      country: "United States",
+      shipping: "USPS",
       source: "ShopifyJP",
       order_type: "customer",
     },
@@ -120,37 +121,38 @@ function App() {
       SHIPIIFY: "17722",
       date: "30 jan 2021",
       status: "pending",
-      customer: "Olivia",
+      customer: "Mike",
       email: "olivia@example.com",
-      country: "Brazil",
-      shipping: "Correios",
+      country: "Australia",
+      shipping: "Austrelian Post Api",
       source: "ShopifyBR",
       order_type: "customer",
     },
-  ]);
-
-  const [categories, setCategories] = useState("ALL");
-  const [statusList, setStatusList] = useState("ALL");
-  const [searchInput, setSearchInput] = useState("");
-
-  const [create, setCreate] = useState(false);
-  const [editor, setEditor] = useState(false);
-  const [task, setTask] = useState({});
+  ]); 
+  const [categories, setCategories] = useState("ALL"); // Selected category filter
+  const [statusList, setStatusList] = useState("ALL"); // Selected status filter
+  const [searchInput, setSearchInput] = useState(""); // Search input
+  const [create, setCreate] = useState(false); // Flag for showing create form
+  const [editor, setEditor] = useState(false); // Flag for showing edit form
+  const [task, setTask] = useState({}); // Data of the task being edited
 
   return (
     <div className="App">
+      {/* Header component to manage overall actions */}
       <Header
         dataList={dataList}
         setDataList={setDataList}
         setCreate={setCreate}
       />
 
+      {/* Filter component to filter data based on categories, status, and search input */}
       <Filter
         setCategories={setCategories}
         setStatusList={setStatusList}
         setSearchInput={setSearchInput}
       />
 
+      {/* Display data list or form based on state */}
       {!create && !editor && (
         <Datalist
           dataList={dataList}
@@ -162,7 +164,7 @@ function App() {
           setTask={setTask}
         />
       )}
-
+      {/* Display data list or form based on state */}
       {(create || editor) && (
         <Dataform
           dataList={dataList}

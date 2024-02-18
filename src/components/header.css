@@ -1,40 +1,45 @@
-.navBar1{
-	border-color: rgb(226,232,240);
+/* Styling for the navigation bar */
+.navBar1 {
+	border-color: rgb(226, 232, 240);
 }
 
-.navContent{
+/* Styling for the content inside the navigation bar */
+.navContent {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 	margin-left: auto;
-    margin-right: auto;
-	padding: 1rem;
+	margin-right: auto;
+	padding: 1rem; 
 }
 
-.dashtext{
+/* Styling for Text indicating the section, e.g., "Orders" */
+.dashtext {
 	display: flex;
 	align-items: center;
 	margin-left: 0.75rem;
 	margin-right: 0.75rem;
 }
 
-.dashtext span{
+/* Styling for the text inside the dashtext */
+.dashtext span {
 	align-self: center;
-	font-size: 2rem;
+	font-size: 2rem; 
 	font-weight: 800;
 	white-space: nowrap;
 }
 
-.createButton{
+/* Styling for the create button */
+.createButton {
 	color: rgb(255 255 255);
-	background-color: rgb(29 78 216);
-	font-weight: 500;
-	border-radius: 0.5rem;
-	font-size: 0.875rem;
+	background-color: rgb(29 78 216); 
+	font-weight: 500; 
+	border-radius: 0.5rem; 
+	font-size: 0.875rem; 
 	line-height: 1.25rem;
 	padding-left: 3rem;
-	padding-right: 3rem;
+	padding-right: 3rem; 
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
 	margin: 10px;

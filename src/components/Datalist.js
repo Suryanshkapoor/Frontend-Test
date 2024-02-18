@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./datalist.css";
 
+// Datalist component for displaying filtered data and managing selection and actions
 export const Datalist = ({
   dataList,
   setDataList,
@@ -46,8 +47,9 @@ export const Datalist = ({
     return true;
   });
 
-  const [selectedRows, setSelectedRows] = useState([]);
+  const [selectedRows, setSelectedRows] = useState([]); // State for selected rows
 
+  // Function to handle checkbox selection
   const handleCheckboxChange = (itemId) => {
     const selectedIndex = selectedRows.indexOf(itemId);
     let newSelected = [];
@@ -68,8 +70,10 @@ export const Datalist = ({
     setSelectedRows(newSelected);
   };
 
+  // Function to check if a row is selected
   const isSelected = (itemId) => selectedRows.indexOf(itemId) !== -1;
 
+  // Function to handle select all checkbox
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
       const newSelecteds = dataList.map((item) => item.id);
@@ -79,20 +83,22 @@ export const Datalist = ({
     setSelectedRows([]);
   };
 
+  // Function to handle editing a task
   const handleEdit = (item) => {
-    setTask(item);
-    setDataList(dataList.filter((data) => data !== item));
-    setEditor(true);
+    setTask(item); // Set the task to edit
+    setDataList(dataList.filter((data) => data !== item)); // Remove the task from the list
+    setEditor(true); // Set editor flag to true
   };
 
+  // Function to handle marking items as shipped
   const handleClick = () => {
     filteredData.map((item) =>
       selectedRows.indexOf(item.id) !== -1
         ? (item.status = "shipped")
         : item.status
     );
-    setSelectedRows([]);
-    document.getElementById('checkbox-all-search').checked=false;
+    setSelectedRows([]); // Clear selected rows
+    document.getElementById('checkbox-all-search').checked=false; // Uncheck select all checkbox
   };
 
   return (
@@ -104,16 +110,16 @@ export const Datalist = ({
           </div>
           <div>
             <form>
-              <label htmlFor="countries" className="colLable">
+              <label htmlFor="columns" className="colLable">
                 Show
               </label>
-              <select id="countries" className="colSelect">
+              <select id="columns" className="colSelect">
                 <option >ALL COLUMN</option>
               </select>
               <button
                 onClick={handleClick}
                 type="button"
-                className="dispatchItems"
+                className="markShipped"
               >
                 Mark Shipped
               </button>
@@ -133,6 +139,7 @@ export const Datalist = ({
                   />
                 </div>
               </th>
+              {/* Table headings */}
               <th scope="col" className="headComponents">
                 id
               </th>
@@ -167,11 +174,13 @@ export const Datalist = ({
             </tr>
           </thead>
           <tbody>
+            {/* Display filtered data */}
             {filteredData.map((item) => {
               const isItemSelected = isSelected(item.id);
               return (
                 <tr key={item.id} className={isItemSelected ? "selected" : ""}>
                   <td>
+                    {/* Checkbox for row selection */}
                     <div className="checkBoxContainer">
                       <input
                         id={item.id}
@@ -182,6 +191,7 @@ export const Datalist = ({
                       />
                     </div>
                   </td>
+                  {/* Table data cells */}
                   <th scope="row" className="bodyheads">
                     {item.id}
                   </th>
@@ -195,6 +205,7 @@ export const Datalist = ({
                   <td className="bodyComponents">{item.source}</td>
                   <td className="bodyComponents">{item.order_type}</td>
                   <td>
+                    {/* Edit button */}
                     <span onClick={() => handleEdit(item)} className="editSign">
                       &#9998;
                     </span>

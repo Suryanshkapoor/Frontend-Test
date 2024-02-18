@@ -1,3 +1,4 @@
+/* Styling for the filter box container */
 .filterBox{
 	display: flex;
 	flex-wrap: wrap;
@@ -11,6 +12,7 @@
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.437), 0 2px 4px -1px rgba(0, 0, 0, 0.437);
 }
 
+/* Styling for labels within the filter box */
 .filterBox label{
 	font-size: 1rem;
 	font-weight: 700;
@@ -42,6 +44,7 @@
 	display: flex;
 }
 
+/* Styling for input field for search */
 #search-input{
 	width: 100%;
 	background-color: #fcfdff;
@@ -57,59 +60,48 @@
 	margin-top: 0.4rem;
 }
 
-#categories{
-	background-color: #f9fafb;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #e5e7eb;
-	color: #111827;
-	font-size: 0.875rem;
-	border-radius: 0.375rem;
-	display: block;
-	width: 100%;
-	padding: 0.625rem;
+/* Styling for dropdown select for categories and status */
+#categories,
+#statuslist {
+	background-color: #f9fafb; 
+	border-width: 1px; 
+	border-style: solid; 
+	border-color: #e5e7eb; 
+	color: #111827; 
+	font-size: 0.875rem; 
+	border-radius: 0.375rem; 
+	display: block; 
+	width: 100%; 
+	padding: 0.625rem; 
 }
 
-#statuslist{
-	background-color: #f9fafb;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #e5e7eb;
-	color: #111827;
-	font-size: 0.875rem;
-	border-radius: 0.375rem;
-	display: block;
-	width: 100%;
-	padding: 0.625rem;
+/* Styling for search and clear buttons */
+.searchButton,
+.clearButton {
+	color: rgb(255 255 255); 
+	font-weight: 500; 
+	border-radius: 0.5rem; 
+	font-size: 0.875rem; 
+	line-height: 1.25rem; 
+	margin: 4px; 
+	margin-top: 10px; 
+	cursor: pointer; 
 }
 
-.searchButton{
-	color: rgb(255 255 255);
-	background-color: rgb(29 78 216);
-	font-weight: 500;
-	border-radius: 0.5rem;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-	padding-left: 3.25rem;
-	padding-right: 3.25rem;
-	padding-top: 0.625rem;
-	padding-bottom: 0.625rem;
-	margin: 4px;
-	margin-top: 10px;
-	border: none;
-	cursor: pointer;
+/* Styling specific to search button */
+.searchButton {
+	background-color: rgb(29 78 216); 
+	padding-left: 3.25rem; 
+	padding-right: 3.25rem; 
+	padding-top: 0.625rem; 
+	padding-bottom: 0.625rem; 
+	border: none; 
 }
 
-.clearButton{
+/* Styling specific to clear button */
+.clearButton {
 	color: rgb(144, 144, 144);
-	background-color: white;
-	min-width: 3rem;
-	font-weight: 500;
-	border-radius: 0.5rem;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-	margin: 4px;
-	margin-top: 10px;
+	background-color: white; 
+	min-width: 3rem; 
 	border: 1px solid rgb(204, 203, 203);
-	cursor: pointer;
 }
