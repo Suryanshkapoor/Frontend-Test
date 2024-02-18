@@ -115,7 +115,7 @@ export const Datalist = ({
                 type="button"
                 className="dispatchItems"
               >
-                Dispatch Selected
+                Mark Shipped
               </button>
             </form>
           </div>
