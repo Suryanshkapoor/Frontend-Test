@@ -33,7 +33,7 @@ export const Filter = () => {
 			</div>
 			</div>
 			<div className='search'>
-				<button type="button" className="clearButton">&#10225;</button>
+				<button type="button" className="clearButton">&#9750;</button>
 				<button type="button" className="searchButton">Search</button>
 			</div>
 		</form>
