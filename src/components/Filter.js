@@ -19,7 +19,7 @@ export const Filter = ({ setStatusList, setCategories, setSearchInput }) => {
       <form className="filterBox">
         <div className="name">
           <label htmlFor="search-input">What are you looking for?</label>
-          <div className="relative w-full">
+          <div>
             <input
               type="text"
               name="searchinput"
@@ -39,13 +39,11 @@ export const Filter = ({ setStatusList, setCategories, setSearchInput }) => {
         </div>
         <div className="status">
           <label htmlFor="statuslist">Status</label>
-          <div className="category">
             <select id="statuslist">
               <option value="ALL">--All--</option>
               <option value="pending">Pending</option>
               <option value="shipped">Shipped</option>
             </select>
-          </div>
         </div>
         <div className="search">
           <button onClick={handleClear} type="button" className="clearButton">

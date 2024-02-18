@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./datalist.css";
 
 export const Datalist = ({
@@ -46,10 +46,53 @@ export const Datalist = ({
     return true;
   });
 
+  const [selectedRows, setSelectedRows] = useState([]);
+
+  const handleCheckboxChange = (itemId) => {
+    const selectedIndex = selectedRows.indexOf(itemId);
+    let newSelected = [];
+
+    if (selectedIndex === -1) {
+      newSelected = newSelected.concat(selectedRows, itemId);
+    } else if (selectedIndex === 0) {
+      newSelected = newSelected.concat(selectedRows.slice(1));
+    } else if (selectedIndex === selectedRows.length - 1) {
+      newSelected = newSelected.concat(selectedRows.slice(0, -1));
+    } else if (selectedIndex > 0) {
+      newSelected = newSelected.concat(
+        selectedRows.slice(0, selectedIndex),
+        selectedRows.slice(selectedIndex + 1)
+      );
+    }
+
+    setSelectedRows(newSelected);
+  };
+
+  const isSelected = (itemId) => selectedRows.indexOf(itemId) !== -1;
+
+  const handleSelectAllClick = (event) => {
+    if (event.target.checked) {
+      const newSelecteds = dataList.map((item) => item.id);
+      setSelectedRows(newSelecteds);
+      return;
+    }
+    setSelectedRows([]);
+  };
+
   const handleEdit = (item) => {
     setTask(item);
     setDataList(dataList.filter((data) => data !== item));
     setEditor(true);
+  };
+
+  const handleClick = () => {
+    filteredData.map((item) =>
+      selectedRows.indexOf(item.id) !== -1
+        ? (item.status = "shipped")
+        : item.status
+    );
+    setSelectedRows([]);
+    document.getElementById('checkbox-all-search').checked=false;
   };
 
   return (
@@ -65,11 +108,13 @@ export const Datalist = ({
                 Show
               </label>
               <select id="countries" className="colSelect">
-                <option value="ALL">ALL COLUMN</option>
-                <option value="US">United States</option>
-                <option value="CA">Canada</option>
+                <option >ALL COLUMN</option>
               </select>
-              <button type="button" className="removeItems">
+              <button
+                onClick={handleClick}
+                type="button"
+                className="dispatchItems"
+              >
                 Dispatch Selected
               </button>
             </form>
@@ -84,6 +129,7 @@ export const Datalist = ({
                     id="checkbox-all-search"
                     type="checkbox"
                     className="checkBox"
+                    onChange={handleSelectAllClick}
                   />
                 </div>
               </th>
@@ -121,32 +167,41 @@ export const Datalist = ({
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((item) => (
-              <tr key={item.id}>
-                <td>
-                  <div className="checkBoxContainer">
-                    <input id={item.id} type="checkbox" className="checkBox" />
-                  </div>
-                </td>
-                <th scope="row" className="bodyheads">
-                  {item.id}
-                </th>
-                <td className="bodyComponents">{item.SHIPIIFY}</td>
-                <td className="bodyComponents">{item.date}</td>
-                <td className="bodyComponents">{item.status}</td>
-                <td className="bodyComponents">{item.customer}</td>
-                <td className="bodyComponents">{item.email}</td>
-                <td className="bodyComponents">{item.country}</td>
-                <td className="bodyComponents">{item.shipping}</td>
-                <td className="bodyComponents">{item.source}</td>
-                <td className="bodyComponents">{item.order_type}</td>
-                <td>
-                  <span onClick={() => handleEdit(item)} className="editSign">
-                    &#9998;
-                  </span>
-                </td>
-              </tr>
-            ))}
+            {filteredData.map((item) => {
+              const isItemSelected = isSelected(item.id);
+              return (
+                <tr key={item.id} className={isItemSelected ? "selected" : ""}>
+                  <td>
+                    <div className="checkBoxContainer">
+                      <input
+                        id={item.id}
+                        type="checkbox"
+                        className="checkBox"
+                        checked={isItemSelected}
+                        onChange={() => handleCheckboxChange(item.id)}
+                      />
+                    </div>
+                  </td>
+                  <th scope="row" className="bodyheads">
+                    {item.id}
+                  </th>
+                  <td className="bodyComponents">{item.SHIPIIFY}</td>
+                  <td className="bodyComponents">{item.date}</td>
+                  <td className="bodyComponents">{item.status}</td>
+                  <td className="bodyComponents">{item.customer}</td>
+                  <td className="bodyComponents">{item.email}</td>
+                  <td className="bodyComponents">{item.country}</td>
+                  <td className="bodyComponents">{item.shipping}</td>
+                  <td className="bodyComponents">{item.source}</td>
+                  <td className="bodyComponents">{item.order_type}</td>
+                  <td>
+                    <span onClick={() => handleEdit(item)} className="editSign">
+                      &#9998;
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

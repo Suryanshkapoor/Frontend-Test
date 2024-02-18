@@ -46,7 +46,7 @@ export const Dataform = ({
             id="name"
             defaultValue={editor === true ? task.customer : ""}
             className="input-box"
-            placeholder="name@flowbite.com"
+            placeholder="Customer Name"
             required
           />
         </div>
@@ -59,7 +59,7 @@ export const Dataform = ({
             id="email"
             defaultValue={editor === true ? task.email : ""}
             className="input-box"
-            placeholder="name@flowbite.com"
+            placeholder="Email"
             required
           />
         </div>
@@ -72,7 +72,7 @@ export const Dataform = ({
             id="status"
             defaultValue={editor === true ? task.status : ""}
             className="input-box"
-            placeholder="name@flowbite.com"
+            placeholder="Status"
             required
           />
         </div>
@@ -85,7 +85,7 @@ export const Dataform = ({
             id="country"
             defaultValue={editor === true ? task.country : ""}
             className="input-box"
-            placeholder="name@flowbite.com"
+            placeholder="Country"
             required
           />
         </div>
@@ -98,7 +98,7 @@ export const Dataform = ({
             id="shipping"
             defaultValue={editor === true ? task.shipping : ""}
             className="input-box"
-            placeholder="name@flowbite.com"
+            placeholder="Shipping"
             required
           />
         </div>
@@ -111,7 +111,7 @@ export const Dataform = ({
             id="source"
             defaultValue={editor === true ? task.source : ""}
             className="input-box"
-            placeholder="name@flowbite.com"
+            placeholder="Source"
             required
           />
         </div>
@@ -124,7 +124,7 @@ export const Dataform = ({
             id="order-type"
             defaultValue={editor === true ? task.order_type : ""}
             className="input-box"
-            placeholder="name@flowbite.com"
+            placeholder="Order Type"
             required
           />
         </div>
