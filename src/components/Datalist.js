@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./datalist.css"
 
-export const Datalist = () => {
+export const Datalist = ({ dataList, setDataList, category }) => {
+
 
 
 	return (
@@ -21,7 +22,7 @@ export const Datalist = () => {
 								<option value="FR">France</option>
 								<option value="DE">Germany</option>
 							</select>
-							<button className='removeItems'>Dispatch Selected</button>
+							<button type='button' className='removeItems'>Dispatch Selected</button>
 						</form>
 					</div>
 				</div>
@@ -68,40 +69,48 @@ export const Datalist = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>
-								<div className="checkBoxContainer">
-									<input id="checkbox-table-search-1" type="checkbox" className="checkBox" />
-								</div>
-							</td>
-							<th scope="row" className="bodyheads">
-								000001
-							</th>
-							<th scope="row" className="bodyheads">
-								Apple MacBook Pro 17"
-							</th>
-							<td className="bodyComponents">
-								Silver
-							</td>
-							<td className="bodyComponents">
-								Laptop
-							</td>
-							<td className="bodyComponents">
-								Yes
-							</td>
-							<td className="bodyComponents">
-								Yes
-							</td>
-							<td className="bodyComponents">
-								$2999
-							</td>
-							<td className="bodyComponents">
-								3.0 lb.
-							</td>
-							<td>
-								<span className="editSign">&#9998;</span>
-							</td>
-						</tr>
+						{category==='ALL' && dataList.map((item) => (
+							<tr key={item.id}>
+								<td>
+									<div className="checkBoxContainer">
+										<input id={item.id} type="checkbox" className="checkBox" />
+									</div>
+								</td>
+								<th scope="row" className="bodyheads">
+									{item.id}
+								</th>
+								<td className="bodyComponents">
+									{item.SHIPIIFY}
+								</td>
+								<td className="bodyComponents">
+									{item.date}
+								</td>
+								<td className="bodyComponents">
+									{item.status}
+								</td>
+								<td className="bodyComponents">
+									{item.customer}
+								</td>
+								<td className="bodyComponents">
+									{item.email}
+								</td>
+								<td className="bodyComponents">
+									{item.country}
+								</td>
+								<td className="bodyComponents">
+									{item.shipping}
+								</td>
+								<td className="bodyComponents">
+									{item.source}
+								</td>
+								<td className="bodyComponents">
+									{item.order_type}
+								</td>
+								<td>
+									<span className="editSign">&#9998;</span>
+								</td>
+							</tr>
+						))}
 					</tbody>
 				</table>
 			</div>

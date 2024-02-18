@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './App.css';
 import { Header } from './components/Header';
-import { Filter } from './components/Filter';
-import { Datalist } from './components/Datalist';
+import { Main } from './components/Main';
+
+
 
 
 
@@ -22,12 +23,19 @@ function App() {
     {id: 100010, SHIPIIFY: '17722', date: '30 jan 2021', status: 'pending', customer: 'Olivia', email: 'olivia@example.com', country: 'Brazil', shipping:'Correios', source:"ShopifyBR", order_type:'customer'}
   ]);
 
+  
 
   return (
     <div className="App">
-      <Header/>
-      <Filter/>
-      <Datalist/>
+
+      <Header 
+      dataList={dataList} setDataList={setDataList}
+      />
+
+      <Main
+      dataList={dataList} setDataList={setDataList}
+      />
+
     </div>
   );
 }

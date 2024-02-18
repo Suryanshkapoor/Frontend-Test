@@ -8,7 +8,7 @@
 	margin-right: auto;
 	padding: 1rem;
 	border-radius: 1rem;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.437), 0 2px 4px -1px rgba(0, 0, 0, 0.437);
 }
 
 .filterBox label{
@@ -90,8 +90,8 @@
 	border-radius: 0.5rem;
 	font-size: 0.875rem;
 	line-height: 1.25rem;
-	padding-left: 3.75rem;
-	padding-right: 3.75rem;
+	padding-left: 3.25rem;
+	padding-right: 3.25rem;
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
 	margin: 4px;
