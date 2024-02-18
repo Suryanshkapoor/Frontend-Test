@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import "./datalist.css"
 
-export const Datalist = ({ dataList, setDataList, category }) => {
+export const Datalist = ({ dataList, setDataList, categories, statusList, searchInput }) => {
 
-
+	
 
 	return (
 		<div>
@@ -69,7 +69,7 @@ export const Datalist = ({ dataList, setDataList, category }) => {
 						</tr>
 					</thead>
 					<tbody>
-						{category==='ALL' && dataList.map((item) => (
+						{dataList.map((item) => (
 							<tr key={item.id}>
 								<td>
 									<div className="checkBoxContainer">

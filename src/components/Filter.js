@@ -1,32 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import "./main.css"
-import { Datalist } from './Datalist';
+import React from 'react'
+import "./filter.css"
 
 
-export const Main = ({ dataList, setDataList }) => {
 
-	const [categories, setCategories] = useState('ALL');
-	const [statusList, setStatusList] = useState('ALL');
-	const [searchInput, setSearchInput] = useState('');
-
-	var category = 'ALL';
-	var status = 'ALL';
-	var str = '';
+export const Filter = ({ setStatusList, setCategories,setSearchInput }) => {
 
 
 	const handleClear = () => {
-		setStatusList('ALL');
-		setCategories('ALL');
-		setSearchInput('');
+		document.getElementById('search-input').value = '';
+        document.getElementById('categories').value = 'ALL';
+        document.getElementById('statuslist').value = 'ALL';
 	};
 
 	const handleSearch = () => {
-		category = categories;
-		status = statusList;
-		str = searchInput;
-		setStatusList('ALL');
-		setCategories('ALL');
-		setSearchInput('');
+		setStatusList(document.getElementById('search-input').value);
+		setCategories(document.getElementById('categories').value);
+		setSearchInput(document.getElementById('statuslist').value);
 	}
 
 	return (<>
@@ -38,14 +27,12 @@ export const Main = ({ dataList, setDataList }) => {
 						type="text"
 						name='searchinput'
 						id="search-input"
-						value={searchInput}
-						onChange={(e) => setSearchInput(e.target.value)}
 						placeholder="&#x1F50E;Search for category, name,company, etc" />
 				</div>
 			</div>
 			<div className='category'>
 				<label htmlFor="categories">Category</label>
-				<select id="categories" value={categories} onChange={(e) => setCategories(e.target.value)}>
+				<select id="categories">
 					<option value='ALL'>--All--</option>
 					<option value='US'>United States</option>
 					<option value='CA'>Canada</option>
@@ -56,7 +43,7 @@ export const Main = ({ dataList, setDataList }) => {
 			<div className='status'>
 				<label htmlFor="statuslist">Status</label>
 				<div className='category'>
-					<select id="statuslist" value={statusList} onChange={(e) => setStatusList(e.target.value)}>
+					<select id="statuslist">
 						<option value='ALL'>--All--</option>
 						<option value='pend'>Pending</option>
 						<option value='done'>Shipped</option>
@@ -68,16 +55,6 @@ export const Main = ({ dataList, setDataList }) => {
 				<button onClick={handleSearch} type="button" className="searchButton">Search</button>
 			</div>
 		</form>
-
-
-
-		<Datalist
-			dataList={dataList} setDataList={setDataList}
-			category={category}
-			status={status}
-			str={str}
-		/>
-
 	</>
 	)
 }
