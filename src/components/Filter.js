@@ -13,9 +13,9 @@ export const Filter = ({ setStatusList, setCategories,setSearchInput }) => {
 	};
 
 	const handleSearch = () => {
-		setStatusList(document.getElementById('search-input').value);
+		setSearchInput(document.getElementById('search-input').value);
 		setCategories(document.getElementById('categories').value);
-		setSearchInput(document.getElementById('statuslist').value);
+		setStatusList(document.getElementById('statuslist').value);
 	}
 
 	return (<>
@@ -34,9 +34,9 @@ export const Filter = ({ setStatusList, setCategories,setSearchInput }) => {
 				<label htmlFor="categories">Category</label>
 				<select id="categories">
 					<option value='ALL'>--All--</option>
-					<option value='US'>United States</option>
-					<option value='CA'>Canada</option>
-					<option value='AU'>Australia</option>
+					<option value='United States'>United States</option>
+					<option value='Canada'>Canada</option>
+					<option value='Australia'>Australia</option>
 
 				</select>
 			</div>
@@ -45,8 +45,8 @@ export const Filter = ({ setStatusList, setCategories,setSearchInput }) => {
 				<div className='category'>
 					<select id="statuslist">
 						<option value='ALL'>--All--</option>
-						<option value='pend'>Pending</option>
-						<option value='done'>Shipped</option>
+						<option value='pending'>Pending</option>
+						<option value='shipped'>Shipped</option>
 					</select>
 				</div>
 			</div>

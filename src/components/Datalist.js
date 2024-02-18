@@ -3,7 +3,46 @@ import "./datalist.css"
 
 export const Datalist = ({ dataList, setDataList, categories, statusList, searchInput }) => {
 
+	const[column, setColumn] = useState('ALL')
+
+	console.log(categories);
+	console.log(statusList);
+	console.log(searchInput);
 	
+	// Filter dataList based on categories, statusList, and searchInput
+	const filteredData = dataList.filter(item => {
+		// Filter by category
+		if (categories !== 'ALL') {
+			if (item.country !== categories) {
+				return false;
+			}
+		}
+		// Filter by status
+		if (statusList !== 'ALL') {
+			if (item.status !== statusList) {
+				return false;
+			}
+		}
+		// Filter by searchInput
+		if (searchInput !== '') {
+			if(!(
+				item.id.toString().includes(searchInput) ||
+				item.SHIPIIFY.toString().includes(searchInput) ||
+				item.date.includes(searchInput) ||
+				item.status.includes(searchInput) ||
+				item.customer.includes(searchInput) ||
+				item.email.includes(searchInput) ||
+				item.country.includes(searchInput) ||
+				item.shipping.includes(searchInput) ||
+				item.source.includes(searchInput) ||
+				item.order_type.includes(searchInput)
+			)){
+				return false;
+			}	
+		}
+		return true;
+	});
+
 
 	return (
 		<div>
@@ -19,8 +58,6 @@ export const Datalist = ({ dataList, setDataList, categories, statusList, search
 								<option value="ALL" >ALL COLUMN</option>
 								<option value="US">United States</option>
 								<option value="CA">Canada</option>
-								<option value="FR">France</option>
-								<option value="DE">Germany</option>
 							</select>
 							<button type='button' className='removeItems'>Dispatch Selected</button>
 						</form>
@@ -69,7 +106,7 @@ export const Datalist = ({ dataList, setDataList, categories, statusList, search
 						</tr>
 					</thead>
 					<tbody>
-						{dataList.map((item) => (
+						{filteredData.map((item) => (
 							<tr key={item.id}>
 								<td>
 									<div className="checkBoxContainer">
