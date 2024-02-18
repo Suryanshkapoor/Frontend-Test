@@ -4,10 +4,6 @@ import "./datalist.css"
 export const Datalist = ({ dataList, setDataList, categories, statusList, searchInput }) => {
 
 	const[column, setColumn] = useState('ALL')
-
-	console.log(categories);
-	console.log(statusList);
-	console.log(searchInput);
 	
 	// Filter dataList based on categories, statusList, and searchInput
 	const filteredData = dataList.filter(item => {
